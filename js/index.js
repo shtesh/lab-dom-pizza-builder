@@ -69,8 +69,10 @@ function renderWhiteSauce() {
 const sauce = document.querySelector('.sauce');
 if (state.whiteSauce) {
   sauce.setAttribute('class','sauce sauce-white');
+  //sauce.classList.add("sauce-white");
 } else {
   sauce.setAttribute('class','sauce');
+  //sauce.classList.remove("sauce-white");
 }
 }
 
@@ -79,8 +81,10 @@ function renderGlutenFreeCrust() {
 const crust = document.querySelector('.crust');
 if (state.glutenFreeCrust) {
   crust.setAttribute('class','crust crust-gluten-free');
+  //crust.classList.add("crust-gluten-free");
 } else {
-  crust.setAttribute('class', 'crust')
+  crust.setAttribute('class', 'crust');
+  //crust.classList.remove("crust-gluten-free");
 }
 }
 
@@ -118,7 +122,24 @@ function renderButtons() {
     document.querySelector('.btn.btn-crust').setAttribute('class', 'btn btn-crust');
   }
 }
+//To correct the upper code - line 24 and 30 should reference the event
+//function renderEverything(event) {
+  //renderButtons(event);
+//function renderButtons(event) {
+//if (event) {
+//const btnClicked = event.currentTarget;
+//for(let property in state) {
+//if(state[property]) btnClicked.classList.add("active");
+//else btnClicked.classList.remove("active");
+//}
+//}
 
+//OR
+//function renderButtons(event) {
+//if (event) {
+  //const btnClicked = event.currentTarget;
+  //let hasClassActive = btnClicked.classList.contains("active");
+  //btnClicked.classList.toggle("active", !hasClassActive)
 
 function renderPrice() {
   // Iteration 4: change the HTML of `<aside class="panel price">`
@@ -159,6 +180,22 @@ function renderPrice() {
 
 renderEverything();
 
+//function renderPrice() {
+ //const priceListEle = document.querySelector('.price ul');
+//priceListEle.innerHTML = '';
+//const totalPriceEle = document.querySelector('.price strong');
+//let totalPrice = basePrice; 
+//for(let oneIngredient in ingredients) {
+//if(state[oneIngredient]) {
+//let newLi = document.createElement('li')
+//newLi.innerHTML = `$${ingredients[oneIngredient].price} ${ingredients[oneIngredient].name}`
+//priceListEle.appendChild(newLi);
+//totalPrice += ingredients[oneIngredient].price;
+//}
+//totalPriceEle.innerHTML = `$${totalPrice}`;
+//}
+//}
+//renderEverything();
 // Iteration 1: Example of a click event listener on `<button class="btn btn-pepperoni">`
 document.querySelector('.btn.btn-pepperoni').addEventListener('click', () => {
   state.pepperoni = !state.pepperoni;
